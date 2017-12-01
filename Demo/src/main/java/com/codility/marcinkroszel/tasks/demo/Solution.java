@@ -12,6 +12,7 @@ public class Solution {
     private static int[] exampleArray6 = {1, 1, 1};                                                             // return 2
     private static int[] exampleArray7 = {2, 2, 2};                                                             // return 3
     private static int[] exampleArray8 = {1, 1, 1, 2, 2, 2};                                                    // return 3
+    private static int[] exampleArray9 = {0, 0, 0,};                                                            // return 1
 
     public int solution(int[] a) {
 
@@ -19,19 +20,33 @@ public class Solution {
         Arrays.sort(a);
         System.out.println("Ascending array: " + Arrays.toString(a));
 
+        boolean resultFlag = false;
         int result = 0;
+
         for (int i = 0; i < a.length - 1; i++) {
             if ((a[i] >= 0) && ((a[i + 1] - a[i]) > 1)) {
                 System.out.println("Searched N = " + (result = a[i] + 1) + "\n");
+                resultFlag = true;
                 break;
             }
-            if ((a[i] < 0)) {
-                System.out.println("Searched N = " + (result = 1) + "\n");
-                break;
+        }
+
+        if (!resultFlag) {
+            for (int i = 0; i < a.length; i++) {
+                if ((a[i] < 0)) {
+                    System.out.println("Searched N = " + (result = 1) + "\n");
+                    resultFlag = true;
+                    break;
+                }
             }
-            if ((a[i + 1] == a[i]) || (a[i + 1] - a[i]) == 1) {
-                System.out.println("Searched N = " + (result = a[a.length - 1] + 1) + "\n");
-                break;
+        }
+
+        if (!resultFlag) {
+            for (int i = 0; i < a.length; i++) {
+                if ((a[i + 1] == a[i]) || (a[i + 1] - a[i]) == 1) {
+                    System.out.println("Searched N = " + (result = a[a.length - 1] + 1) + "\n");
+                    break;
+                }
             }
         }
         return result;
@@ -56,5 +71,7 @@ public class Solution {
         demo.solution(exampleArray7);
         System.out.println("Array_8");
         demo.solution(exampleArray8);
+        System.out.println("Array_9");
+        demo.solution(exampleArray9);
     }
 }
