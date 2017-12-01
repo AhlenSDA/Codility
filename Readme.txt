@@ -1,1 +1,2 @@
-Assignments from https://codility.com/
+Assignments from 
+https://codility.com/
