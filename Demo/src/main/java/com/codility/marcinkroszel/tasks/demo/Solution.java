@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Solution {
 
+    // int[] arrays created for testing different algorithm variation
     private static int[] exampleArray1 = {-9, -18, -1, 0, 3, -10, -20, 2, 8, 7, 10, 2, 1, 1};                   // return 4
     private static int[] exampleArray2 = {1, 3, 6, 4, 2};                                                       // return 5
     private static int[] exampleArray3 = {0, 1, 1, 2, 3, 5, -1, 0, -1, 0, -1, 5, 7, -100, -2, 3, 4, 0, -1};     // return 6
@@ -20,13 +21,14 @@ public class Solution {
         Arrays.sort(a);
         System.out.println("Ascending array: " + Arrays.toString(a));
 
-        boolean resultFlag = false;
+        // boolean allows separation of each checked condition
+        boolean resultFlag = false; // if value is set to false, next condition is entered and int[] is checked
         int result = 0;
 
         for (int i = 0; i < a.length - 1; i++) {
             if ((a[i] >= 0) && ((a[i + 1] - a[i]) > 1)) {
                 System.out.println("Searched N = " + (result = a[i] + 1) + "\n");
-                resultFlag = true;
+                resultFlag = true; // if value is set to true, no more following condition are checked
                 break;
             }
         }
